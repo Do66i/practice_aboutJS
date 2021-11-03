@@ -33,6 +33,8 @@ function marry(man, woman) {
   woman.husband = man;
   man.wife = woman;
 
+console.log(woman.husband)
+
   return {
     father: man,
     mother: woman

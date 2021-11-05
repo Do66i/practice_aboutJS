@@ -1,0 +1,47 @@
+.MemoListContainer {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  border: 1px solid black;
+}
+
+.HeaderPart {
+  background-color: yellow;
+}
+
+.MemoPart {
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.radioBox {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 10px 0px;
+}
+
+.memoBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+}
+
+.MemoListEntryContainer {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  background-color: yellow;
+}
+
+.infoPart {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.contentPart {
+  padding: 3px;
+}

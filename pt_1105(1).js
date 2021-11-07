@@ -164,6 +164,35 @@ function test5(arr) {
     arrNew.push(Object.fromEntries(arr[i])) // 그냥 entries쓰면 안돌아감.
   } 
  
+  /* {
+
+  let newArr = arr.map(function(el){
+        let obj = {}; // 얘는 for문이 돌때마다 {}로 다시 돌아감 => [{},{},{}...{}]
+    for(let i=0 ; i<el.length ; i++){
+      obj[el[i][0]] = el[i][1];
+    }
+    return obj; 
+  })
+  let sortedArr = newArr.sort(function(a,b) {
+    return a.age - b.age //오름차순
+  })
+
+  let nameArr = sortedArr.map(function(el){
+    if(el.firstName !== undefined && el.lastName !== undefined){
+      return el.firstName+' '+el.lastName
+    }
+    if(el.firstName === undefined){
+      el.firstName = '';
+    }
+    if(el.lastName === undefined){
+      el.lastName = '';
+    }
+    return el.firstName+el.lastName
+ }); 
+  return nameArr;
+}*/
+
+
   //나이랑 오름차순 뚜들겨만들기
   arrNew.sort(function (acc, cur) { // sort쓰면 정렬가능 "배열"
     if(acc.age > cur.age ){

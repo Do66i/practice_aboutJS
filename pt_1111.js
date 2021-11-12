@@ -53,11 +53,11 @@ console.log(output) // 8
 function queuePrinter(bufferSize, capacities, documents) {
 
   let printList=[]
-  printList.length=bufferSize
+  printList.length=bufferSize // 프린트가 감당할 수 있는 최대용량 ?
   let paperBox=[...documents]
   let sec=0
-function sumIdx(arr){//0과 undefined를 제외한 element 갯수
-  return arr.map(x=>x!==0||undefined).filter(x=>x===true).length
+function sumIdx(arr){//0과 undefined(빈칸)를 제외한 element 갯수
+  return arr.map( x => x !== 0 || undefined ).filter( x => x === true ).length
 } //[0,0,0,0,0,0,0,1,undefined]-----> 1 
 function sumArr(arr){
   function add(accumulator, a) {
@@ -70,10 +70,10 @@ function sumArr(arr){
   // let documents = [7, 4, 5, 6];
   //[   ,   4]  [5   ,   6]                 
   while(paperBox.length||sumIdx(printList)){
-    if(printList[0]===undefined){//인쇄해야할 문서없음
-      if((sumArr(printList)+paperBox[0])<=capacities&&sumIdx(printList)+1<=bufferSize){
+    if( printList[0] === undefined ){//인쇄해야할 문서없음
+      if((sumArr(printList) + paperBox[0]) <= capacities && sumIdx(printList) + 1 <= bufferSize){ // + 1 << 없는 한개를 대신해서 채워주는 수 ?
         printList.shift()
-        printList[bufferSize-1]=paperBox.shift()
+        printList[bufferSize-1]=paperBox.shift() //bufferSize = printList.length !
         sec++
       }//이동가능
       else{
@@ -131,9 +131,8 @@ function sumArr(arr){
 return sec
 }
 
-
 let bufferSize = 2;
 let capacities = 10;
 let documents = [7, 4, 5, 6];
-//degger
-//queuePrinter(bufferSize, capacities, documents)
+debugger
+console.log(queuePrinter(bufferSize, capacities, documents))
